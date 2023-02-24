@@ -13,8 +13,8 @@ function StarWarMovies() {
   } = useData([])
   
 
-  function handleClick ({title,opening_crawl}){
-      setSelectedMovie({title,opening_crawl})
+  function handleClick(title,opening_crawl){
+      setSelectedMovie(title,opening_crawl)
   }
   return (
 
@@ -38,8 +38,8 @@ function StarWarMovies() {
                     <li className=' '>
                       Episode{movie.episode_id}
                     </li>
-                    <li className='' >
-                      <a href="" onClick={handleClick(movie.title, movie.opening_crawl)}>Episode{movie.episode_id}-{movie.title}</a>
+                    <li className='' onClick={handleClick(movie.title,movie.opening_crawl)}>
+                      Episode{movie.episode_id}-{movie.title}
                     </li>
                     <li>
                       {movie.release_date}
