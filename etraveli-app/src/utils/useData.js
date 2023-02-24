@@ -3,7 +3,7 @@ import { FETCH_MOVIE_DATA_URL } from '../constants'
 
 const useData = () => {
     const [movies, setMovies] = useState([])
-  const [selectedMovie, setSelectedMovie] = useState(null)
+ 
 
   useEffect(()=>{
     fetchApi()
@@ -17,7 +17,7 @@ const useData = () => {
     
   }
 
-  return {movies,setMovies,selectedMovie,setSelectedMovie}
+  return {movies,setMovies}
 }
 
 export default useData

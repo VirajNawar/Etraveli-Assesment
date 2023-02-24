@@ -1,21 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import useData from '../utils/useData'
 
 
 function StarWarMovies() {
-  
+  const [selectedMovieTitle, setSelectedMovieTitle] = useState('')
+  const [selectedMovieDescription, setSelectedMovieDecription] = useState('')
   const {
     movies,
     setMovies,
-    selectedMovie,
-    setSelectedMovie
   } = useData([])
   
 
-  function handleClick(title,opening_crawl){
-      setSelectedMovie(title,opening_crawl)
-  }
+
   return (
 
     <div className="">
@@ -38,7 +35,10 @@ function StarWarMovies() {
                     <li className=' '>
                       Episode{movie.episode_id}
                     </li>
-                    <li className='' onClick={handleClick(movie.title,movie.opening_crawl)}>
+                    <li className='cursor-pointer' onClick={()=>{
+                      setSelectedMovieTitle(movie.title)
+                      setSelectedMovieDecription(movie.opening_crawl)
+                      }}>
                       Episode{movie.episode_id}-{movie.title}
                     </li>
                     <li>
@@ -51,15 +51,15 @@ function StarWarMovies() {
            
           </ul>
         </div>
-        <div className="movie__desc basis-1/2">
+        <div className="movie__desc basis-1/2 ">
          {
-          selectedMovie ? (
-            <>
-            <h2>{selectedMovie.title}</h2>
-            <p>{selectedMovie.opening_crawl}</p>
-            </>
+          selectedMovieTitle && selectedMovieDescription ? (
+            <div className='flex flex-col p-6'>
+            <h2 className='text-2xl font-bold mb-3'>{selectedMovieTitle}</h2>
+            <p>{selectedMovieDescription}</p>
+            </div>
           ):(
-            <h3>No Data Found</h3>
+            <h3 className='grid place-content-center pt-52'>No Data Found</h3>
           )
          }
         </div>
