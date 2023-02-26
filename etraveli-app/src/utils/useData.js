@@ -3,6 +3,8 @@ import { FETCH_MOVIE_DATA_URL } from '../constants'
 
 const useData = () => {
     const [movies, setMovies] = useState([])
+    const [filteredMovie, setFilteredMovie] = useState([])
+    const [sortedMovie, setSortedMovie] = useState([])
  
 
   useEffect(()=>{
@@ -14,10 +16,12 @@ const useData = () => {
     const json = await data.json()
     // console.log(json.results)
     setMovies(json.results)
+    setFilteredMovie(json.results)
+    setSortedMovie(json.results)
     
   }
 
-  return {movies,setMovies}
+  return {movies,setMovies, filteredMovie, setFilteredMovie, sortedMovie, setSortedMovie}
 }
 
 export default useData

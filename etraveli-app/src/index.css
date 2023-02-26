@@ -10,3 +10,9 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+.movie__card{
+  border-bottom: 2px solid gray;
+  padding-bottom: 1em;
+  
+}
