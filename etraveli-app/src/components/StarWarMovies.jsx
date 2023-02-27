@@ -23,6 +23,31 @@ function StarWarMovies() {
     setSortedMovie
   } = useData([])
 
+       
+    
+  const [sortBy, setSortBy] = useState("")
+
+  function handleYearSort() {
+      setSortBy("year")
+  }
+
+  function handleEpisodeSort() {
+      setSortBy("episode")
+  }
+
+  
+
+  const getSortedMovie = movies.sort((a,b)=>{
+    
+    if(sortBy === "episode"){
+      return a.episode_id - b.episode_id
+    }else if (sortBy === "year"){
+      return new Date(a.release_date) - new Date(b.release_date)
+    }else{
+      return 0
+    }
+    
+  }) 
 
 
   return (
@@ -30,16 +55,22 @@ function StarWarMovies() {
     <div className="">
       <div className="search__container  flex flex-wrap sm:flex-wrap md:flex-wrap p-3 bg-gray-400">
         <div className="btn">
-          <SortBy />
+          <SortBy 
+            handleEpisodeSort={handleEpisodeSort}
+            handleYearSort={handleYearSort}
+            sortBy={sortBy}
+            setSortBy={setSortBy}
+            setSortedMovie={setSortedMovie}
+            getSortedMovie={getSortedMovie}
+          />
         </div>
         <div className="search-input max-w-full">
           <input type="text" className="" value={searchMovie} onChange={handleSearch} />
           <button className='mx-2 rounded-md bg-white bg-opacity-80 px-4 py-1 text-sm font-medium  hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 px-3'
             onClick={() => {
-
               const data = filterMovies(searchMovie, movies)
-
               setFilteredMovie(data)
+            
             }}>Search</button>
         </div>
       </div>

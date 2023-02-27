@@ -1,24 +1,20 @@
 import { Menu, Transition } from '@headlessui/react'
-import { Fragment } from 'react'
+import { Fragment, useState } from 'react'
 import { AiOutlineDown } from 'react-icons/ai'
-import useData from '../utils/useData'
 
 
-export default function SortBy() {
 
-    const [sortBy, setSortBy] = useState("")
 
-    function handleYearSort() {
-        setSortBy('year')
-    }
+export default function SortBy({
+    handleEpisodeSort,
+    handleYearSort,
+    sortBy,
+    setSortedMovie,
+    getSortedMovie
+}) {
 
-    function handleEpisodeSort(){
-        setSortBy('episode')
-    }
 
-    const {movies} = useData()
-    const sort = useSortBy(sortBy,movies)
-    
+
     return (
         <div className="text-right">
             <Menu as="div" className="relative inline-block text-left mr-5">
@@ -43,29 +39,37 @@ export default function SortBy() {
                     <Menu.Items className="absolute left-0  w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                         <div className="px-1 py-1 ">
                             <Menu.Item>
-                                {({ active }) => (
-                                    <button
-                                    onClick = {handleEpisodeSort}
-                                        className={`${active ? 'bg-violet-500 text-white' : 'text-gray-900'
-                                            } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                                    >
-                                        Episode
-                                    </button>
-                                )}
+
+                                <button
+                                    onClick={() => {
+                                        handleEpisodeSort()
+                                        const sorted = getSortedMovie
+                                        setSortedMovie(sorted)
+                                    }}
+                                    className='hover:bg-violet-500text-gray-900
+                                    group flex w-full items-center rounded-md px-2 py-2 text-sm'
+                                >
+                                    Episode
+                                </button>
+
                             </Menu.Item>
                             <Menu.Item>
-                                {({ active }) => (
-                                    <button
-                                    onClick = {handleYearSort}
-                                        className={`${active ? 'bg-violet-500 text-white' : 'text-gray-900'
-                                            } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                                    >
-                                        Year
-                                    </button>
-                                )}
+
+                                <button
+                                    onClick={() => {
+                                        handleYearSort()
+                                        const sorted = getSortedMovie
+                                        setSortedMovie(sorted)
+                                    }}
+                                    className='hover:bg-violet-500 text-gray-900
+                                                group flex w-full items-center rounded-md px-2 py-2 text-sm'
+                                >
+                                    Year
+                                </button>
+
                             </Menu.Item>
                         </div>
-                       
+
                     </Menu.Items>
                 </Transition>
             </Menu>
