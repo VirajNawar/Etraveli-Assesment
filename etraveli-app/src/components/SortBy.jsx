@@ -44,6 +44,8 @@ export default function SortBy({
                                     onClick={() => {
                                         handleEpisodeSort()
                                         const sorted = getSortedMovie
+                                        console.log("sorted episode",sorted);
+                                        
                                         setSortedMovie(sorted)
                                     }}
                                     className='hover:bg-violet-500text-gray-900
@@ -59,6 +61,8 @@ export default function SortBy({
                                     onClick={() => {
                                         handleYearSort()
                                         const sorted = getSortedMovie
+                                        console.log("sorted year",sorted);
+
                                         setSortedMovie(sorted)
                                     }}
                                     className='hover:bg-violet-500 text-gray-900
