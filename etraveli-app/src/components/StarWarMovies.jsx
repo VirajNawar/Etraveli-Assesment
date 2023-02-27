@@ -67,8 +67,8 @@ function StarWarMovies() {
             setFilteredMovie={setFilteredMovie}
           />
         </div>
-        <div className="search-input max-w-full">
-          <input type="text" className="px-2 py-1 rounded-sm" placeholder='Type to search...' value={searchMovie} onChange={handleSearch} />
+        <div className="search-input flex flex-1 max-w-full">
+          <input type="text" className="px-2 flex-1 py-1 rounded-sm" placeholder='Type to search...' value={searchMovie} onChange={handleSearch} />
           <button className='mx-2 rounded-md bg-white bg-opacity-80 px-4 py-1 text-sm font-medium  hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 '
             onClick={() => {
               const data = filterMovies(searchMovie, movies)
