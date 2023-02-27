@@ -38,9 +38,9 @@ function StarWarMovies() {
 
 
 
-  const getSortedMovie =  movies.sort((a, b) => {
+  const getSortedMovie = filteredMovie.sort((a, b) => {
 
-      
+
     if (sortBy == "episode") {
       return a.episode_id - b.episode_id
     } else if (sortBy == "year") {
@@ -50,9 +50,9 @@ function StarWarMovies() {
     }
 
   })
-    
-  
-  
+
+
+
 
 
   return (
@@ -63,10 +63,8 @@ function StarWarMovies() {
           <SortBy
             handleEpisodeSort={handleEpisodeSort}
             handleYearSort={handleYearSort}
-            sortBy={sortBy}
-            setSortBy={setSortBy}
-            setSortedMovie={setSortedMovie}
             getSortedMovie={getSortedMovie}
+            setFilteredMovie={setFilteredMovie}
           />
         </div>
         <div className="search-input max-w-full">

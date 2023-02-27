@@ -8,9 +8,8 @@ import { AiOutlineDown } from 'react-icons/ai'
 export default function SortBy({
     handleEpisodeSort,
     handleYearSort,
-    sortBy,
-    setSortedMovie,
-    getSortedMovie
+    getSortedMovie,
+    setFilteredMovie
 }) {
 
 
@@ -44,9 +43,7 @@ export default function SortBy({
                                     onClick={() => {
                                         handleEpisodeSort()
                                         const sorted = getSortedMovie
-                                        console.log("sorted episode",sorted);
-                                        
-                                        setSortedMovie(sorted)
+                                        setFilteredMovie(sorted)
                                     }}
                                     className='hover:bg-violet-500text-gray-900
                                     group flex w-full items-center rounded-md px-2 py-2 text-sm'
@@ -61,9 +58,7 @@ export default function SortBy({
                                     onClick={() => {
                                         handleYearSort()
                                         const sorted = getSortedMovie
-                                        console.log("sorted year",sorted);
-
-                                        setSortedMovie(sorted)
+                                        setFilteredMovie(sorted)
                                     }}
                                     className='hover:bg-violet-500 text-gray-900
                                                 group flex w-full items-center rounded-md px-2 py-2 text-sm'
