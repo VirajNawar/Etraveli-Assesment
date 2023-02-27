@@ -45,7 +45,7 @@ export default function SortBy({
                                         const sorted = getSortedMovie
                                         setFilteredMovie(sorted)
                                     }}
-                                    className='hover:bg-violet-500text-gray-900
+                                    className='hover:bg-violet-500 text-gray-900
                                     group flex w-full items-center rounded-md px-2 py-2 text-sm'
                                 >
                                     Episode
